@@ -1,0 +1,5 @@
+{
+  "autoLogoutEnabled": true,
+  "idleTimeoutMinutes": 15,
+  "maxSessionMinutes": 30
+}

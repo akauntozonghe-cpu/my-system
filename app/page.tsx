@@ -1,16 +1,38 @@
-import Link from "next/link";
-
 export default function Home() {
+  const month = new Date().getMonth() + 1;
+  const season: "spring" | "summer" | "autumn" | "winter" =
+    month >= 3 && month <= 5
+      ? "spring"
+      : month >= 6 && month <= 8
+      ? "summer"
+      : month >= 9 && month <= 11
+      ? "autumn"
+      : "winter";
+
+  const ver = "ver 1.0.0";
+
+  const messages = {
+    spring: "新しい始まりを支える在庫管理",
+    summer: "活気と責任を担う",
+    autumn: "実りを守る在庫管理",
+    winter: "静けさの中で責任を果たす",
+  };
+
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-      <div className="p-10 bg-white rounded-lg shadow text-center">
-        <h1 className="text-3xl font-bold mb-4">MY-SYSTEM</h1>
-        <p className="mb-6 text-gray-700">資格者専用システムへようこそ</p>
-        <Link href="/login">
-          <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-            ログイン画面へ
-          </button>
-        </Link>
+    <main className={`season-${season} flex min-h-screen items-center justify-center relative overflow-hidden`}>
+      <div className="particles absolute inset-0 pointer-events-none"></div>
+
+      <div className="ui-card text-center">
+        <h1 className="title">
+          在庫管理システム <span className="ver">{ver}</span>
+        </h1>
+        <p className="subtitle">誇りと責任の舞台</p>
+        <p className="lead">一つひとつの在庫が、信頼の証</p>
+        <p className="season-copy">{messages[season]}</p>
+
+        <a href="/login" className="cta">
+          責任を果たすためにログインする
+        </a>
       </div>
     </main>
   );
