@@ -1,3 +1,5 @@
+
+
 export default function StocktakingLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
